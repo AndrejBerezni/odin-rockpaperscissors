@@ -1,6 +1,6 @@
 # odin-rockpaperscissors
 
-This little project was created as part of **THE ODIN PROJECT** curriculum, while following ""Full-Stack JavaScript path**.
+This little project was created as part of **THE ODIN PROJECT** curriculum, while following **Full-Stack JavaScript path**.
 
 For now, goal of this project was to create Rock-Paper-Scissors, using only JS - later in curriculum I will come back to it to make it a browser game.
 
