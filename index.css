@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: 'Golos Text', sans-serif;
 }
 
 body {
@@ -7,11 +8,11 @@ body {
     padding: 0;
     background-image: url(./images/webb-dark.png);
     color: gold;
-    font-family: 'Golos Text', sans-serif;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
 }
 
 main {
@@ -21,8 +22,24 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    gap: 5vh;
+    gap: 2vh;
+    /* margin-top: 10vh; */
+}
+
+#new-game {
+    background-color: transparent;
+    color: gold;
+    padding: 20px;
+    border: 3px solid gold;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#new-game:hover {
+    box-shadow: 0px 0px 10px gold;
+    transform: scale(1.1);
 }
 .score {
     display: flex;
@@ -33,7 +50,7 @@ main {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    gap: 20px;
+    gap: 3vw;
 }
 .selections img {
     max-width: 20vw;
@@ -53,10 +70,14 @@ main {
 
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
+footer, header {
     width: 100vw;
     background-color: black;
     max-height: 10vh;
+}
+
+
+footer {
+    position: absolute;
+    bottom: 0;
 }

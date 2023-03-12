@@ -1,58 +1,82 @@
+let userScore = 0;
+let compScore = 0;
+
 let choices = {
     1: 'Rock',
     2: 'Paper',
     3: 'Scissors'
 }
-
 let getComputerChoice = () => choices[Math.floor(Math.random() * 3) + 1]
 
-let playRound = (playerSelection, computerSelection) => {
-    let input = playerSelection.toLowerCase()
-    if (input == 'rock') {
-        if (computerSelection == 'Rock') {
-            return [`It's a tie!`, 0]
-        } else if (computerSelection == 'Paper') {
-            return [`You lose! Paper beats rock!`, -1]
-        } else {
-            return [`You win! Rock beats scissors!`, 1]
-        }
-    } else if (input == 'paper') {
-        if (computerSelection == 'Rock') {
-            return [`You win! Paper beats rock!`, 1]
-        } else if (computerSelection == 'Paper') {
-            return [`It's a tie!`, 0]
-        } else {
-            return [`You lose! Scissors beat paper!`, -1]
-        }
-    } else {
-        if (computerSelection == 'Rock') {
-            return [`You lose! Rock beats scissors!`, -1]
-        } else if (computerSelection == 'Paper') {
-            return [`You win! Scissors beat paper!`, 1]
-        } else {
-            return [`It's a tie!`, 0]
-        }
+let displayPlayerScore = document.getElementById('player-score');
+let displayComputerScore = document.getElementById('computer-score');
+let computerChoice = document.getElementById('computer-choice');
+let winner = document.getElementById('winner');
+
+let updateScore = () => {
+    displayComputerScore.innerText = compScore;
+    displayPlayerScore.innerText = userScore;
+    if (userScore == 5) {
+        winner.innerText = 'YOU WIN!';
+    } else if (compScore == 5) {
+        winner.innerText = 'COMPUTER WINS!';
     }
 }
 
-let game = () => {
-    let userScore = 0;
-    let compScore = 0;
-    while (userScore < 3 && compScore < 3) {
-        let playerSelection = prompt('Rock, paper or scissors?')
-        let computerSelection = getComputerChoice();
-        let result = playRound(playerSelection, computerSelection)
-        if (result[1] > 0) {
-            userScore++
-        } else if (result[1] < 0) {
-            compScore++
+let selections = document.querySelectorAll('.selection');
+
+selections.forEach(selection => {
+    selection.addEventListener('click', () => {
+        if (userScore < 5 && compScore < 5) {
+            let playerSelection = selection.getAttribute('id');
+            let computerSelection = getComputerChoice();
+            computerChoice.innerText = `Computer choice: ${computerSelection}`
+            if (playerSelection == 'rock') {
+                if (computerSelection == 'Rock') {
+                    return `It's a tie!`
+                } else if (computerSelection == 'Paper') {
+                    compScore++
+                    updateScore()
+                    return `You lose! Paper beats rock!`
+                } else {
+                    userScore++
+                    updateScore()
+                    return `You win! Rock beats scissors!`
+                }
+            } else if (playerSelection == 'paper') {
+                if (computerSelection == 'Rock') {
+                    userScore++
+                    updateScore()
+                    return `You win! Paper beats rock!`
+                } else if (computerSelection == 'Paper') {
+                    return `It's a tie!`
+                } else {
+                    compScore++
+                    updateScore()
+                    return `You lose! Scissors beat paper!`
+                }
+            } else {
+                if (computerSelection == 'Rock') {
+                    compScore++
+                    updateScore()
+                    return `You lose! Rock beats scissors!`
+                } else if (computerSelection == 'Paper') {
+                    userScore++
+                    updateScore()
+                    return `You win! Scissors beat paper!`
+                } else {
+                    return `It's a tie!`
+                }
+            }
         }
-        console.log(result[0])
-        console.log(`Player: ${userScore} | Computer: ${compScore}`)
-    }
-    if (userScore > compScore) {
-        console.log('You win the match!')
-    } else {
-        console.log('Computer wins the match!')
-    }
-}
+    })
+});
+
+let newGame = document.getElementById('new-game');
+
+newGame.addEventListener('click', () => {
+    userScore = 0;
+    compScore = 0;
+    winner.innerText = ''
+    updateScore();
+});
