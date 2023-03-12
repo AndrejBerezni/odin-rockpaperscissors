@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,20 +8,35 @@
     <title>Rock Paper Scissors</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+
 </head>
+
 <body>
     <main>
         <h1>Rock-Paper-Scissors</h1>
-        <div class="instructions"></div>
-        <div class="score"></div>
+        <div class="score">
+            <h2>Player:<span id='player-score'></span></h2>
+            <h2>Computer:<span id='computer-score'></span></h2>
+        </div>
+        <div class="instructions">
+            <h3>Make your choice! First one to win 5 rounds wins the match!</h3>
+        </div>
         <div class="selections">
             <button><img src="./images/rock-removebg-preview.png"></button>
             <button><img src="./images/rsz_paper-removebg-preview.png"></button>
             <button><img src="./images/scissors-removebg-preview.png"></button>
         </div>
     </main>
+    <footer>
+        <p>Copyright &copy 2023 AndrejBerezni</p>
+
+    </footer>
+
 </body>
 <script src="./index.js"></script>
+
 </html>

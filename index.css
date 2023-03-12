@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -6,10 +10,25 @@ body {
     font-family: 'Golos Text', sans-serif;
     text-align: center;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
+main {
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    gap: 5vh;
+}
+.score {
+    display: flex;
+    justify-content: center;
+    gap: 10vw
+}
 .selections {
     display: flex;
     flex-direction: row;
@@ -24,10 +43,20 @@ body {
 
 .selections button {
     border-radius: 50px;
-    transition: 0.3s;
+    transition: 0.4s;
+
 }
 
 .selections button:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(15deg);
     box-shadow: 0px 0px 10px gold;
+
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    background-color: black;
+    max-height: 10vh;
 }
